@@ -31,14 +31,22 @@ function draw(data) {
     // myChart.addSeries("Pclass", dimple.plot.scatter);
     // myChart.draw();
 
+    // var myChart = new dimple.chart(svg, data);
+    // var y = myChart.addMeasureAxis('y', 'Survived');
+
+    // var x = myChart.addCategoryAxis('x', 'Age');
+    // x.addOrderRule('Age');
+    // // myChart.addSeries("Pclass", dimple.plot.scatter);
+    // var series = myChart.addSeries("Sex", dimple.plot.bar);
+
     var myChart = new dimple.chart(svg, data);
-    var y = myChart.addMeasureAxis('y', 'Survived');
 
-    var x = myChart.addCategoryAxis('x', 'Age');
-    x.addOrderRule('Age');
-    // myChart.addSeries("Pclass", dimple.plot.scatter);
-    var series = myChart.addSeries("Sex", dimple.plot.bar);
+    myChart.setBounds(60, 30, 510, 305)
 
-    myChart.addLegend(0, 60 , 80, 50, "right");
-    myChart.draw()
+    var x = myChart.addCategoryAxis("x", "Age");
+    x.addOrderRule("Age");
+    myChart.addMeasureAxis("y", "Survived");
+    myChart.addSeries("Sex", dimple.plot.bar);
+    myChart.addLegend(60, 10, 510, 20, "right");
+    myChart.draw();
 };
