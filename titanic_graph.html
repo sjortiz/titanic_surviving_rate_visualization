@@ -13,7 +13,12 @@
         Use D3 (not dimple.js) to load the TSV file
         and pass the contents of it to the draw function
         */
-            d3.csv("titanic.csv", draw);
+            d3.csv("titanic.csv", function(d) {
+                if (d['Survived'] == 1){
+                    d['Age'] = Math.floor(d['Age'])
+                    return d;
+                }
+            }, draw);
         </script>
     </body>
 </html>
