@@ -79,9 +79,9 @@ function draw(data) {
     myChart.draw();
 
     // Scatter-plot + line chart
-    var secondGraph = makeSvg(width, height, margin);
+    var scatterPlotLine = makeSvg(width, height, margin);
     var myChart = new dimple.chart(
-        secondGraph,
+        scatterPlotLine,
         data,
     );
     var x = myChart.addCategoryAxis('x', 'Age');
@@ -89,7 +89,19 @@ function draw(data) {
     x.addOrderRule('Age')
     var y = myChart.addMeasureAxis('y','Survived')
     y.title = 'Survivers'
-    myChart.addSeries(null, dimple.plot.line);
-    myChart.addSeries(null, dimple.plot.scatter);
+    myChart.addSeries('Sex', dimple.plot.line);
+    myChart.addSeries('Sex', dimple.plot.scatter);
     myChart.draw();
+
+    // bubble chart first try
+    var bubbleChart = makeSvg(width, height, margin);
+    var myChart = new dimple.chart(
+        bubbleChart,
+        data
+    )
+    var x = myChart.addCategoryAxis('x', 'Pclass')
+    var y = myChart.addCategoryAxis('y', 'Age')
+    var z = myChart.addMeasureAxis('z', 'Survived')
+    myChart.addSeries('Sex', dimple.plot.bubble)
+    myChart.draw()
 };
