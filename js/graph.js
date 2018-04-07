@@ -1,5 +1,6 @@
 function makeSvg(width, height, margin) {
-
+    /* Function that appends a SVG element to the page
+    and retur it's referecen */
     return d3.select("body")
         .append("svg")
         .attr("width", width + margin)
@@ -10,7 +11,8 @@ function makeSvg(width, height, margin) {
 };
 
 function makeAgeGroup(data) {
-
+    /* Function that updates the age to range
+    Instead of a exact number and removes the unkowns*/
     var transformed = []
 
     data.forEach(
@@ -48,11 +50,14 @@ function makeAgeGroup(data) {
 };
 
 function addTitle(title, tag='h2', inside='body') {
+    /* Function that adds a tag inside an element
+    by default a h2*/
    return d3.select(inside).append(tag).text(title)
 }
 
 function draw(data) {
-
+    /* Main function that assembles everything to make the graph
+    */
     "use strict";
     var margin = 75,
     width = 1400 - margin,
@@ -63,41 +68,6 @@ function draw(data) {
     )
 
     var data = makeAgeGroup(data)
-
-    // Bar chart
-    var firstGraph = makeSvg(width, height, margin);
-    var myChartFirst = new dimple.chart(
-        firstGraph,
-        data,
-    );
-    var x = myChartFirst.addCategoryAxis('x', 'Age');
-    x.title = "Age group";
-    x.addOrderRule('Age');
-    var y = myChartFirst.addMeasureAxis('y', 'Survived');
-    var myChartFirstLegend = myChartFirst.addLegend(
-        10, 100, 60, 300, "Right"
-    );
-    y.title = 'Survivers';
-    myChartFirst.addSeries('Sex', dimple.plot.bar);
-    myChartFirst.draw();
-
-    // Scatter-plot + line chart
-    var scatterPlotLine = makeSvg(width, height, margin);
-    var myChartSecond = new dimple.chart(
-        scatterPlotLine,
-        data,
-    );
-    var x = myChartSecond.addCategoryAxis('x', 'Age');
-    x.title = "Age group";
-    x.addOrderRule('Age')
-    var y = myChartSecond.addMeasureAxis('y','Survived')
-    var myChartSecondLegend = myChartSecond.addLegend(
-        10, 100, 60, 300, "Right"
-    );
-    y.title = 'Survivers'
-    myChartSecond.addSeries('Sex', dimple.plot.line);
-    myChartSecond.addSeries('Sex', dimple.plot.scatter);
-    myChartSecond.draw();
 
     // bubble chart first try
     var bubbleChart = makeSvg(width, height, margin);

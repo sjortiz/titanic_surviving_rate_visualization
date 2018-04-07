@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <script src="http://d3js.org/d3.v3.min.js"></script>
         <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
-        <link rel="stylesheet" href="./style.css"/>
-        <script src="graph.js"></script>
+        <link rel="stylesheet" href="./css/style.css"/>
+        <script src="./js/graph.js"></script>
     </head>
     <body>
         <script type="text/javascript">
@@ -13,7 +13,7 @@
         Use D3 (not dimple.js) to load the TSV file
         and pass the contents of it to the draw function
         */
-            d3.csv("titanic.csv", function(d) {
+            d3.csv("./data/titanic.csv", function(d) {
                 if (d['Survived'] == 1){
                     d['Age'] = Math.floor(d['Age'])
                     return d;
