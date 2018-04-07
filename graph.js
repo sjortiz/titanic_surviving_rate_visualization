@@ -59,49 +59,61 @@ function draw(data) {
     height = 600 - margin;
 
     var pageTitle = addTitle(
-        "Titanic Survivers by grop's Age"
+        "Titanic Survivers by group's Age"
     )
 
     var data = makeAgeGroup(data)
 
     // Bar chart
     var firstGraph = makeSvg(width, height, margin);
-    var myChart = new dimple.chart(
+    var myChartFirst = new dimple.chart(
         firstGraph,
         data,
     );
-    var x = myChart.addCategoryAxis('x', 'Age');
+    var x = myChartFirst.addCategoryAxis('x', 'Age');
     x.title = "Age group";
-    x.addOrderRule('Age')
-    var y = myChart.addMeasureAxis('y','Survived')
-    y.title = 'Survivers'
-    myChart.addSeries(null, dimple.plot.bar);
-    myChart.draw();
+    x.addOrderRule('Age');
+    var y = myChartFirst.addMeasureAxis('y', 'Survived');
+    var myChartFirstLegend = myChartFirst.addLegend(
+        10, 100, 60, 300, "Right"
+    );
+    y.title = 'Survivers';
+    myChartFirst.addSeries('Sex', dimple.plot.bar);
+    myChartFirst.draw();
 
     // Scatter-plot + line chart
     var scatterPlotLine = makeSvg(width, height, margin);
-    var myChart = new dimple.chart(
+    var myChartSecond = new dimple.chart(
         scatterPlotLine,
         data,
     );
-    var x = myChart.addCategoryAxis('x', 'Age');
+    var x = myChartSecond.addCategoryAxis('x', 'Age');
     x.title = "Age group";
     x.addOrderRule('Age')
-    var y = myChart.addMeasureAxis('y','Survived')
+    var y = myChartSecond.addMeasureAxis('y','Survived')
+    var myChartSecondLegend = myChartSecond.addLegend(
+        10, 100, 60, 300, "Right"
+    );
     y.title = 'Survivers'
-    myChart.addSeries('Sex', dimple.plot.line);
-    myChart.addSeries('Sex', dimple.plot.scatter);
-    myChart.draw();
+    myChartSecond.addSeries('Sex', dimple.plot.line);
+    myChartSecond.addSeries('Sex', dimple.plot.scatter);
+    myChartSecond.draw();
 
     // bubble chart first try
     var bubbleChart = makeSvg(width, height, margin);
-    var myChart = new dimple.chart(
+    var myChartThird = new dimple.chart(
         bubbleChart,
         data
     )
-    var x = myChart.addCategoryAxis('x', 'Pclass')
-    var y = myChart.addCategoryAxis('y', 'Age')
-    var z = myChart.addMeasureAxis('z', 'Survived')
-    myChart.addSeries('Sex', dimple.plot.bubble)
-    myChart.draw()
+    var x = myChartThird.addCategoryAxis('x', 'Pclass')
+    var y = myChartThird.addCategoryAxis('y', 'Age')
+    var z = myChartThird.addMeasureAxis('z', 'Survived')
+    var myChartThirdLegend = myChartThird.addLegend(
+        10, 100, 60, 300, "Right"
+    );
+    
+    myChartThird.addSeries('Sex', dimple.plot.bubble)
+    myChartThird.draw()
+
+    myLegend.shapes.selectAll("text").style("font-size", "20px");
 };
