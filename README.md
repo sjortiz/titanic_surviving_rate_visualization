@@ -21,6 +21,41 @@ and I choose to change the age to a range to reduce the noise cause by the overp
 #### What relationships do you notice?
 	Between the second class and the third class the amoutn of children survivors look alike
 
+#### Is there something you don’t understand in the graphic?
+	The graphic doesn't shows if this happens because there were more womans than mens
+
+#### What do you think is the main takeaway from this visualization?
+	That whelty people survivor more, maybe they where closer to the lifeboats?
+
+### James Alday
+
+#### What do you notice in the visualization?
+	Pclass is a bad label
+	Age ranges are uncommon
+
+#### What questions do you have about the data?
+	total number of women/men? Hard to tell if it’s a lot of deaths in comparison to total passengers
+
+#### What relationships do you notice?
+
+### Maria de Jesus
+
+#### What do you notice in the visualization?
+	It's hard to tell the exact values
+	Women from the first class in the range of 31-40 surviver more than the womens from other classes of the same range
+
+#### What questions do you have about the data?
+	How many survivors where there in totall?
+
+#### What relationships do you notice?
+	There is a correlation between the sex and the age, we can see in the graph that the group of women in the ages of 21-30 always survived more, across the classes.
+
+#### What do you think is the main takeaway from this visualization?
+	Welthy womans survived more
+
+#### Is there something you don’t understand in the graphic?
+	Why there weren't any survivor littler girl
+
 ## Resources
 
 - Projects From the datavisualization course (specific the world cup games)
