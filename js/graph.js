@@ -22,22 +22,22 @@ function makeAgeGroup(data) {
 
             if (Age != 0){
 
-                if (Age > 0 && Age <= 10){
-                    ageGroup = '1-10';
-                } else if (Age > 10 && Age <= 20){
-                    ageGroup = '11-20';
-                } else if (Age > 20 && Age <= 30){
-                    ageGroup = '21-30';
-                } else if (Age > 30 && Age <= 40){
-                    ageGroup = '31-40';
-                } else if (Age > 40 && Age <= 50){
-                    ageGroup = '41-50';
-                } else if (Age > 50 && Age <= 60){
-                    ageGroup = '51-60';
-                } else if (Age > 60 && Age <= 70){
-                    ageGroup = '61-70';
-                } else if (Age > 70 && Age <= 80){
-                    ageGroup = '71-80';
+                if (Age > 0 && Age < 10){
+                    ageGroup = '0-9';
+                } else if (Age >= 10 && Age < 20){
+                    ageGroup = '10-19';
+                } else if (Age >= 20 && Age < 30){
+                    ageGroup = '20-29';
+                } else if (Age >= 30 && Age < 40){
+                    ageGroup = '30-39';
+                } else if (Age >= 40 && Age < 50){
+                    ageGroup = '40-49';
+                } else if (Age >= 50 && Age < 60){
+                    ageGroup = '50-59';
+                } else if (Age >= 60 && Age < 70){
+                    ageGroup = '60-69';
+                } else if (Age >= 70){
+                    ageGroup = '70-above';
                 }
 
                 datapoint.Age = ageGroup
@@ -64,7 +64,7 @@ function draw(data) {
     height = 600 - margin;
 
     var pageTitle = addTitle(
-        "Titanic Survivers by group's Age"
+        "Titanic Survivers Graph: Pclass VS Age-group VS Sex"
     )
 
     var data = makeAgeGroup(data)
@@ -81,9 +81,9 @@ function draw(data) {
     var myChartThirdLegend = myChartThird.addLegend(
         10, 100, 60, 300, "Right"
     );
-    
+    x.title = 'Passenger sitting class';
     myChartThird.addSeries('Sex', dimple.plot.bubble)
     myChartThird.draw()
 
-    myLegend.shapes.selectAll("text").style("font-size", "20px");
+    myLegend.shapes.selectAll("text").style("font-size", "40px");
 };
