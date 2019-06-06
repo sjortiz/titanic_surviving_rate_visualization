@@ -36,7 +36,8 @@ When we combine all of these things we can see that the largest group of survivo
 <img src="https://dha4w82d62smt.cloudfront.net/items/332K45142L0y3m1i0S21/Image%202018-04-08%20at%208.28.34%20PM.png"/>
 
 ## Final
-<img src="https://dha4w82d62smt.cloudfront.net/items/141z063d2H0f3S0T363P/Image%202018-04-08%20at%209.14.05%20PM.png">
+![result-image](https://github.com/sjortiz/titanic_surviving_rate_visualization/blob/master/img/result-graph.png)
+
 
 ## Design Chooses
 
